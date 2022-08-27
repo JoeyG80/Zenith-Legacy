@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {LinearProgress} from '@material-ui/core';
-import {NO_DRAG} from 'utils/common-utils';
 import {IBaseProps} from 'models/models';
 import {IOverview} from 'models/alpha-vantage-api-models';
 import useData, {EDataProviderKeys} from 'hooks/useData';
@@ -21,12 +20,12 @@ function Summary({style}: IBaseProps): JSX.Element {
   }, [symbol]);
   return (
     <div style={style.overlay}>
-      <h1 className={NO_DRAG} style={style.text}>Summary</h1>
+      <h1 style={style.text}>Summary</h1>
       {
         data ? (
-          <>
+          <div>
             <div style={style.flexStart}>
-              <h3 className={NO_DRAG} style={style.header}>
+              <h3 style={style.header}>
                 <a
                   style={style.link}
                   href={data.website}
@@ -36,26 +35,34 @@ function Summary({style}: IBaseProps): JSX.Element {
                 </a>
               </h3>
             </div>
-            <h4 className={NO_DRAG} style={style.text}>
-              Description
-            </h4>
-            <div className={NO_DRAG} style={style.text}>
-              {data.Description}
+            <h4>Description</h4>
+            <div>{data.Description}</div>
+            <h4>Industry</h4>
+            <div>{data.Industry}</div>
+            <h4>Sector</h4>
+            <div>{data.Sector}</div>
+            <h4>Stats:</h4>
+            <div style={style.flex}>
+              <div>
+                <div>PE Ratio: {data.TrailingPE}</div>
+                <div>PEG Ratio: {data.PEGRatio}</div>
+                <div>Book Value: {data.BookValue}</div>
+                <div>Dividend Yield: {data.DividendYield}</div>
+              </div>
+              <div>
+                <div>EPS: {data.EPS}</div>
+                <div>Reutrn on Assets: {data.ReturnOnAssetsTTM}</div>
+                <div>Return on Equity: {data.ReturnOnEquityTTM}</div>
+                <div>Quarterly Earnings Growth YOY: {data.QuarterlyEarningsGrowthYOY}</div>
+              </div>
+              <div>
+                <div>Quarterly Revenue Growth YOY: {data.QuarterlyRevenueGrowthYOY}</div>
+                <div>PS Ratio: {data.PriceToSalesRatioTTM}</div>
+                <div>PB Ratio: {data.PriceToBookRatio}</div>
+                <div>Beta: {data.Beta}</div>
+              </div>
             </div>
-            <h4 className={NO_DRAG} style={style.text}>
-              Industry
-            </h4>
-            <div className={NO_DRAG} style={style.text}>
-              {data.Industry}
-            </div>
-            <h4 className={NO_DRAG} style={style.text}>
-              Sector
-            </h4>
-            <div className={NO_DRAG} style={style.text}>
-              {data.Sector}
-            </div>
-            <h4 className={NO_DRAG} style={style.text}>Stats: TODO</h4>
-          </>
+          </div>
         ) :
           (<LinearProgress style={style.progressBar} />)
       }
