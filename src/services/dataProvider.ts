@@ -6,7 +6,6 @@ import {
   IOverview,
   IEarnings,
 } from 'models/alpha-vantage-api-models';
-import {createContext} from 'react';
 
 interface IDataProvider {
   [key: string]: any;
@@ -16,16 +15,6 @@ interface IDataProvider {
   incomeStatement: Subject<IIncomeStatement>;
   summary: Subject<IOverview>;
   earnings: Subject<IEarnings>;
-}
-
-interface ITest {
-  [key: string]: any;
-  symbol?: string;
-  balanceSheetStatement?: IBalanceSheetStatement;
-  cashFlowStatement?: ICashFlowStatement;
-  incomeStatement?: IIncomeStatement;
-  summary?: IOverview;
-  earnings?: IEarnings;
 }
 
 /**
@@ -49,5 +38,3 @@ const DATA_PROVIDER = Object.freeze({
 });
 
 export default DATA_PROVIDER as IDataProvider;
-export const test: ITest = {};
-export const GlobalContext = createContext(test as ITest)
