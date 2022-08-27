@@ -88,7 +88,7 @@ class AlphaVantageAPIService {
   static getCompanyOverview(tickerSymbol: string): void {
     const url: string = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${tickerSymbol}&apikey=${AlphaVantageAPIService.apiKey}`;
     if (AlphaVantageAPIService.isDevMode) {
-      dataProvider.overview.next(mockOverview);
+      dataProvider.summary.next(mockOverview);
     } else {
       AlphaVantageAPIService.sendRequest(url)
         .then((val) => dataProvider.overview.next(val));
