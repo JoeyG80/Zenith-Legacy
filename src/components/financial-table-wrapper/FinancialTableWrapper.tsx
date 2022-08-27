@@ -1,7 +1,7 @@
 import React, {useState, createElement} from 'react';
 import {IBaseProps} from 'models/models';
 import DualButton from 'components/dual-button/DualButton';
-import {NO_DRAG} from 'utils/common-utils';
+
 
 
 export interface IFinancialTableWrapperProps extends IBaseProps {
@@ -33,7 +33,7 @@ function FinancialTableWrapper({
       <div style={style.flex}>
         <h1
           style={style.header}
-          className={NO_DRAG}>
+         >
           {title}
         </h1>
         <DualButton

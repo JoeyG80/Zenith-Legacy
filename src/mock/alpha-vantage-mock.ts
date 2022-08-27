@@ -8,7 +8,6 @@ import {
   IIncomeStatement,
   IBalanceSheetStatement,
   ICashFlowStatement,
-  ISearchResult,
   ISearchResults,
 } from 'models/alpha-vantage-api-models';
 

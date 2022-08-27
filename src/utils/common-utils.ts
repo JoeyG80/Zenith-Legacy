@@ -77,7 +77,6 @@ export const CHART_COLORS = [
   '#7307a0',
 ];
 
-export const NO_DRAG = 'no-drag';
 export const DECIMAL_PLACES = 2;
 
 /**

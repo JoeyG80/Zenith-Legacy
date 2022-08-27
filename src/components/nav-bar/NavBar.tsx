@@ -9,8 +9,7 @@ import defaultStyles from './styles';
 import {IBaseProps, ISearchResults} from 'models/models';
 import dataProvider from 'services/dataProvider';
 import AlphaVantageAPIService from 'api-clients/alpha-vantage-api-service';
-import {IBalanceSheetStatement, ISearchResult} from 'models/alpha-vantage-api-models';
-import useData, { EDataProviderKeys } from 'hooks/useData';
+import {ISearchResult} from 'models/alpha-vantage-api-models';
 
 export interface INavBarProps extends IBaseProps {
   openSettings: () => void;
@@ -55,9 +54,6 @@ export default function NavBar({
         setSearchOptions(results ? results : []);
       });
   };
-  const data =
-    useData<IBalanceSheetStatement>(EDataProviderKeys.BALANCE_SHEET_STATEMENT);
-  const symbol = useData<string>(EDataProviderKeys.SYMBOL);
   return (
     <div style={mergedStyles.navBar}>
       <div style={mergedStyles.flexStart}>

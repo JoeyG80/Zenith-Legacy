@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {
   LinearProgress,
   Table,
@@ -7,10 +7,7 @@ import {
   TableContainer,
   TableRow,
 } from '@material-ui/core';
-import {
-  NO_DRAG,
-  handleStringToNumberWithSuffix,
-} from 'utils/common-utils';
+import {handleStringToNumberWithSuffix} from 'utils/common-utils';
 import {ICashFlowReport, ICashFlowStatement} from 'models/alpha-vantage-api-models';
 import AlphaVantageAPIService from 'api-clients/alpha-vantage-api-service';
 import {IFinancialsStatementsProps} from 'models/models';
@@ -18,7 +15,6 @@ import useData, {EDataProviderKeys} from 'hooks/useData';
 
 /**
  * @description A table component to display an income statement
- * @param {ICashFlowTableProps}
  * @example
  *    <CashFlowTable
  *      style={mergedStyles}
@@ -49,7 +45,7 @@ function CashFlowTable({
     <>
       {
         data ? (
-          <TableContainer className={NO_DRAG}>
+          <TableContainer>
             <Table>
               <TableBody>
                 <TableRow>

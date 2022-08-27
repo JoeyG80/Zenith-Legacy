@@ -1,10 +1,8 @@
-import React from 'react';
 import {
   Button,
   ButtonGroup,
 } from '@material-ui/core';
 import {merge} from 'lodash';
-import {NO_DRAG} from 'utils/common-utils';
 import {IBaseProps} from 'models/models';
 import defaultStyles from './styles';
 
@@ -40,7 +38,7 @@ export default function DualButton({
   return (
     <ButtonGroup
       style={mergedStyles.flexCenter}
-      className={NO_DRAG}>
+     >
       <Button
         style={buttonState ? mergedStyles.button : mergedStyles.buttonDisabled}
         disableTouchRipple={true}
